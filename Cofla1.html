@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cofla problema 1</title>
+    <style>
+      body {
+        background-color: rgb(38, 38, 38);
+        text-align: center;
+        color: rgb(225, 0, 255);
+        margin: 0 auto;
+        padding: 0 auto;
+        font-family: monospace;
+      }
+      h1,h2 {
+        color: antiquewhite;
+        text-shadow: #FC0 1px 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lista de Precios de Helados</h1>
+    <li>
+      <ol>
+        Palito de Agua : 0.6 Usd
+      </ol>
+      <ol>
+        Palito de Crema : 1 Usd
+      </ol>
+      <ul>
+        Palito Heladix : 1.6 Usd
+      </ul>
+      <ul>
+        Palito Heladovich : 1.7 Usd
+      </ul>
+      <ul>
+        Palito Helardo : 1.8 Usd
+      </ul>
+      <ul>
+        Vaso Gridito : 2.9 Usd
+      </ul>
+      <ul>
+        1/4 de Helado : 2.9 Usd
+      </ul>
+    </li>
+
+    <h3>Calcular que helado me alcanza:</h3>
+    <form action="" method="dialog">
+      <input id="txtInput" type="text" placeholder="Cuanto dinero traes:" />
+      <button id="btnCalcular">calcular</button>
+
+      <h2 id="respuesta"></h2>
+    </form>
+    <script>
+      const palitoAgua = 0.6;
+      const palitoCrema = 1;
+      const heladix = 1.6;
+      const heladovich = 1.7;
+      const helardo = 1.8;
+      const conConfites = 2.9;
+      const unCuarto = 2.9;
+      let plata = document.getElementById("txtInput");
+      let boton = document.getElementById("btnCalcular");
+      let pRespuesta = document.getElementById("respuesta");
+
+      boton.addEventListener("click", cualMeAlcanza);
+
+      function cualMeAlcanza() {
+        plata = Number(plata.value);
+
+        if (plata < palitoAgua) {
+          respuesta = `No te alcanza para ningun Helado :(`;
+          return (pRespuesta.innerHTML = respuesta);
+        }
+        if (plata >= palitoAgua && plata < palitoCrema) {
+          respuesta = `Te alcanza para un Palito de Agua, y te sobraria ${(
+            plata - palitoAgua
+          ).toFixed(2)} Usd`;
+          return (pRespuesta.innerHTML = respuesta);
+        }
+        if (plata >= palitoCrema && plata < heladix) {
+          respuesta = `Te alcanza para un Palito de Crema, y te sobraria ${(
+            plata - palitoCrema
+          ).toFixed(2)} Usd`;
+          return (pRespuesta.innerHTML = respuesta);
+        }
+        if (plata >= heladix && plata < heladovich) {
+          respuesta = `Te alcanza para un HELADIX, y te sobraria ${(
+            plata - heladix
+          ).toFixed(2)} Usd`;
+          return (pRespuesta.innerHTML = respuesta);
+        }
+        if (plata >= heladovich && plata < helardo) {
+          respuesta = `Te alcanza para un HELADOVICH, y te sobraria ${(
+            plata - heladovich
+          ).toFixed(2)} Usd`;
+          return (pRespuesta.innerHTML = respuesta);
+        }
+        if (plata >= helardo && plata < 2.9) {
+          respuesta = `Te alcanza para un HELARDO, y te sobraria ${(
+            plata - helardo
+          ).toFixed(2)} Usd`;
+          return (pRespuesta.innerHTML = respuesta);
+        }
+        if (plata >= 2.9) {
+          respuesta = `Te alcanza para un 1/4KG o un GRIDITO, y te sobraria ${(
+            plata - 2.9
+          ).toFixed(2)} Usd`;
+          return (pRespuesta.innerHTML = respuesta);
+        }
+      }
+    </script>
+  </body>
+</html>
